@@ -4,6 +4,7 @@
   "description": "A prototype tool for creating audio/visual output, by reacting to audio and midi inputs.",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
