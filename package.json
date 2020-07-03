@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "git ls-files | entr -c -r electron .",
+    "watch": "git ls-files | entr -c -r -s 'npm run format && electron .'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "eslint . && prettier --write ."
   },
@@ -14,7 +15,7 @@
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
     "prettier": "^2.0.5",
-    "prettier-eslint": "^11.0.0"
+    "standard": "^14.3.4"
   },
   "repository": {
     "type": "git",
