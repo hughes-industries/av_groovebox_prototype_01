@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Hello Groover</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" />
+  </head>
+
+  <body>
+    <h1>Hello Groover</h1>
+
+    <p>
+      We are using node
+      <script type="text/javascript">
+        document.write(process.versions.node)
+      </script>
+      , Chrome
+      <script type="text/javascript">
+        document.write(process.versions.chrome)
+      </script>
+      , and Electron
+      <script type="text/javascript">
+        document.write(process.versions.electron)
+      </script>
+      .
+    </p>
+
+    <div class="content-blk">
+      Helo.. This is my first desktop app
+      <button id="loadnewwindow">click to load new window</button>
+
+      <div id="message"></div>
+    </div>
+    <script type="text/javascript">
+      // include the ipc module to communicate with main process.
+      const ipcRenderer = require('electron').ipcRenderer
+
+      const btnclick = document.getElementById('loadnewwindow')
+      btnclick.addEventListener('click', function () {
+        console.log('ping sent from web-page')
+        var arg = 'ping'
+
+        //send the info to main process . we can pass any arguments as second param.
+        ipcRenderer.send('pingMsg', arg) // ipcRender.send will pass the information to main process
+      })
+
+      ipcRenderer.on('pongMsg', (event, arg) => {
+        console.log(arg + 'revieved by web page') // prints "pong"
+      })
+    </script>
+  </body>
+</html>
