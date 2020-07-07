@@ -24,3 +24,14 @@ npm i
 # run
 npm start
 ```
+
+## Rout Midi From DAW to av_groovebox_prototype_01
+
+MacOS:
+
+- Open Audio Midi Setup
+- Window > Show Midi Studio
+- IAC Driver > Device is Online
+
+Will now show up as a midi bus in DAWs and
+av_groovebox_prototype_01, hook up I/O as required.

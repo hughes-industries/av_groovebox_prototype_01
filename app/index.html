@@ -30,12 +30,14 @@
 
     <div class="content-blk">
       Helo.. This is my first desktop app
-      <button id="loadnewwindow">click to load new window</button>
+      <button id="loadnewwindow">
+        click to load send messages to the node process...
+      </button>
 
       <div id="message"></div>
     </div>
     <script type="text/javascript">
-      require('./midi')
+      require('./midi').start()
       // include the ipc module to communicate with main process.
       const ipcRenderer = require('electron').ipcRenderer
 

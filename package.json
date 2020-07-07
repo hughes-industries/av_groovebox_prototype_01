@@ -2,12 +2,12 @@
   "name": "av_groovebox_prototype_01",
   "version": "0.1.0",
   "description": "A prototype tool for creating audio/visual output, by reacting to audio and midi inputs.",
-  "main": "main.js",
+  "main": "./app/main.js",
   "scripts": {
-    "start": "git ls-files | entr -c -r electron .",
+    "start": "electron .",
     "watch": "git ls-files | entr -c -r -s 'npm run format && electron .'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "eslint . && prettier --write ."
+    "format": "eslint ./app/ && prettier --write ./app/"
   },
   "dependencies": {
     "electron": "^9.0.5"
