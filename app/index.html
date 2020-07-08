@@ -10,7 +10,12 @@
   </head>
 
   <body>
-    <h1>Hello Groover</h1>
+    <h1 id="title">AVGrooveBox</h1>
+
+    <ul>
+      <li id="kick"></li>
+      <li id="snare"></li>
+    </ul>
 
     <p>
       We are using node
@@ -37,7 +42,10 @@
       <div id="message"></div>
     </div>
     <script type="text/javascript">
-      require('./midi').start()
+      require('./midi').start(
+        document.getElementById('kick'),
+        document.getElementById('snare')
+      )
       // include the ipc module to communicate with main process.
       const ipcRenderer = require('electron').ipcRenderer
 
