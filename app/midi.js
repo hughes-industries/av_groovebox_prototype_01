@@ -1,6 +1,6 @@
 'use strict'
 
-async function start(kick, snare) {
+async function start(kick, snare, video) {
   const access = await navigator.requestMIDIAccess()
   // Get lists of available MIDI controllers
   const inputs = access.inputs.values()
@@ -16,6 +16,12 @@ async function start(kick, snare) {
         if (m.data[0] !== 128 && !kickOn) {
           kick.innerHTML = 'KICK - ' + m.data.join('-')
           kickOn = true
+          if (video.paused) {
+            video.play()
+          }
+          //video.pause()
+          video.currentTime = 0
+          //video.load()
           setTimeout(() => {
             kick.innerHTML = 'KICK - OFF'
             kickOn = false
