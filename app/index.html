@@ -8,7 +8,6 @@
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <meta http-equiv="Content-Security-Policy" />
     <style>
-
       @font-face {
         font-family: 'ocramedium';
         src: url('./assets/ocr-a.woff') format('woff');
@@ -20,7 +19,7 @@
       }
       pre {
         font-family: ocramedium, ocraextended, monospace;
-        color: green
+        color: green;
       }
       #myVideo {
         position: fixed;
@@ -81,15 +80,18 @@
             <div id="message"></div>
           </div>
         </div>
-        <div style="display: table-cell; width: 80%; ">
-          <pre id="logger" style="height: 20em; overflow: hidden; padding-left: 1em;"></pre>
+        <div style="display: table-cell; width: 80%;">
+          <pre
+            id="logger"
+            style="height: 20em; overflow: hidden; padding-left: 1em;"
+          ></pre>
         </div>
       </div>
     </div>
     <script type="text/javascript">
       const domStuff = {
         video: document.getElementById('myVideo'),
-        logger: document.getElementById('logger')
+        logger: document.getElementById('logger'),
       }
       require('./midi').start(
         document.getElementById('kick'),

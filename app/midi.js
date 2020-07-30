@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 async function start(kick, snare, domStuff) {
   const access = await navigator.requestMIDIAccess()
   // Get lists of available MIDI controllers
@@ -18,16 +16,20 @@ async function start(kick, snare, domStuff) {
   let filter = 0
 
   function toggleVideoFilter() {
-    filter = filter ? 0: 1
+    filter = filter ? 0 : 1
     domStuff.video.style = `filter: grayscale(${filter});`
-
   }
 
   ;[...inputs].forEach((i) => {
     log('input ' + i.name)
     i.onmidimessage = (m) => {
       let msg = ''
-      log(i.name + ' - <span style="color: white">' + JSON.stringify(m.data) + '</span>')
+      log(
+        i.name +
+          ' - <span style="color: white">' +
+          JSON.stringify(m.data) +
+          '</span>'
+      )
       if (m.data[1] === 93) {
         if (m.data[2] === 0) {
           log('<span style="color: red">STOP</span>')
@@ -41,9 +43,9 @@ async function start(kick, snare, domStuff) {
       if (m.data[1] === 36) {
         log(i.name + ' kick ' + m.data.join('-'))
         if (m.data[0] !== 128 && !kickOn) {
-          msg = 'KICK - <span style="color: white">' + m.data.join('-') + '</span>'
-          kick.innerHTML = 
-          log(msg)
+          msg =
+            'KICK - <span style="color: white">' + m.data.join('-') + '</span>'
+          kick.innerHTML = log(msg)
           kickOn = true
           toggleVideoFilter()
           if (domStuff.video.paused) {
