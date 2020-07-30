@@ -5,7 +5,7 @@
   "main": "./app/main.js",
   "scripts": {
     "start": "electron .",
-    "watch": "git ls-files | entr -c -r -s 'npm run format && electron .'",
+    "watch": "git ls-files | entr -c -r -s 'electron .'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "eslint ./app/ && prettier --write ./app/"
   },
